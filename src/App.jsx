@@ -6,7 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   return (
-    <div className=" max-w-screen-md mx-auto  ">
+    <div className="max-w-screen-md mx-auto h-[90vh]">
       <BrowserRouter>
         <ErrorBoundary>
           <Routes>

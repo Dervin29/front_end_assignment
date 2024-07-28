@@ -40,15 +40,15 @@ const PetDetails = () => {
       <div className="flex flex-col gap-2 text-left bg-blue-950 rounded-lg p-5">
         <div>
           <button
-            className=" w-1/6 bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            className="  bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 md:py-3 md:px-6 rounded"
             onClick={() => navigate("/")}
           > Back </button>
         </div>
         <div className="flex flex-col gap-3 bg-white p-4 rounded-md ">
         <h1 className="text-2xl font-bold">{selectedPet.name}</h1>
-        <p className="text"><span className=" font-bold">Animal: </span> {selectedPet.animal}</p>
+        <p className=""><span className=" font-bold">Animal: </span> {selectedPet.animal}</p>
         <p className=""><span className=" font-bold">Breed: </span> {selectedPet.breed}</p>
-        <p className=" text-left text-wrap leading-normal "><span className=" font-bold">Description: </span> {selectedPet.description}</p>
+        <p className=" text-justify md:text-left flex flex-col leading-normal "><span className=" font-bold">Description: </span> {selectedPet.description}</p>
         <p className=""><span className=" font-bold">State: </span> {selectedPet.state}</p>
         <p className=""><span className=" font-bold">City: </span> {selectedPet.city}</p>
         <div className="flex flex-row gap-2 overflow-x-auto no-scrollbar">
@@ -57,7 +57,7 @@ const PetDetails = () => {
               key={index}
               src={image}
               alt={`Photo of ${selectedPet.name}`}
-              className="w-1/4  "
+              className="w-1/2  "
             />
           ))}
         </div>

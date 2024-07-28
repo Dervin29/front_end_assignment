@@ -43,8 +43,8 @@ const SearchComponent = ({ setPets }) => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-2 bg-[#202847] p-4 rounded-md">
-      <div className="w-full flex gap-4 ">
+    <div className="w-full  flex flex-col  gap-2 bg-[#202847] p-4 rounded-md ">
+      <div className="w-full flex flex-col md:flex-row gap-2 ">
         <select className=" w-full px-4 py-2 rounded-md " value={animal} onChange={(e) => setAnimal(e.target.value)}>
           <option  value="">Select Animal</option>
           {Array.from(new Set(pets.map((pet) => pet.animal))).map((animal) => (
@@ -83,7 +83,7 @@ const SearchComponent = ({ setPets }) => {
         </select>
       </div>
 
-      <button onClick={handleSearch} className="w-full rounded-md bg-blue-400 hover:bg-blue-500  text-white p-2">
+      <button onClick={handleSearch} className="w-full  rounded-md bg-blue-400 hover:bg-blue-500  text-white p-2">
         Search
       </button>
     </div>
