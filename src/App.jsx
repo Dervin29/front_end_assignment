@@ -2,15 +2,18 @@ import "./App.css";
 import PetList from "./components/PetList";
 import PetDetails from "./components/PetDetails";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   return (
-    <div className=" max-w-screen-md mx-auto">
+    <div className=" max-w-screen-md mx-auto  ">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<PetList />} />
-          <Route path="/pet/:id" element={<PetDetails />} />
-        </Routes>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<PetList />} />
+            <Route path="/pet/:id" element={<PetDetails />} />
+          </Routes>
+        </ErrorBoundary>
       </BrowserRouter>
     </div>
   );
