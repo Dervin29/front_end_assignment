@@ -36,7 +36,7 @@ const PetDetails = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-[90vh] gap-2 mx-auto">
+    <div className=" flex flex-col justify-center items-center h-[90vh] gap-2 mx-auto">
       <div className="flex flex-col gap-2 text-left bg-blue-950 rounded-lg p-5">
         <div>
           <button
@@ -60,7 +60,7 @@ const PetDetails = () => {
               key={index}
               src={image}
               alt={`Photo of ${selectedPet.name}`}
-              className="w-1/2  "
+              className="w-1/4  rounded-md"
             />
           ))}
         </div>
