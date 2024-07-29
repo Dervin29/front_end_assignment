@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { PetContext } from "../context/PetContext";
 import { useNavigate } from "react-router-dom";
-import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa"
+import { FaArrowAltCircleRight } from "react-icons/fa";
 import axios from "axios";
 import SearchComponent from "./SearchComponent";
 
@@ -27,65 +27,70 @@ const PetList = () => {
   }, [setPets]);
 
   return (
-    <div className="max-w-screen-lg mx-auto p-4 flex flex-col gap-4 justify-center items-center h-screen   rounded-sm">
-      <SearchComponent setPets={setPets}/>
+    <div className="max-w-screen-lg mx-auto p-4 flex flex-col gap-4 justify-center items-center h-screen rounded-sm">
+      <SearchComponent setPets={setPets} />
+      
       <div className="overflow-x-auto w-full no-scrollbar">
-        <table className="min-w-full divide-y divide-gray-200 shadow-md">
-          <thead className="bg-[#202847]">
-            <tr>
-              <th
-                scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
-              >
-                Name
-              </th>
-              <th
-                scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
-              >
-                Breed
-              </th>
-              <th
-                scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
-              >
-                Animal
-              </th>
-              <th
-                scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
-              >
-                Details
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-[#f7fcfc] divide-y divide-gray-200">
-            {pets.map((pet) => (
-              <tr key={pet.id}>
-                <td className="px-4 py-2 md:px-6 md:py-4">
-                  <div className="text-sm md:text-base text-gray-900">{pet.name}</div>
-                </td>
-                <td className="px-4 py-2 md:px-6 md:py-4">
-                  <div className="text-sm md:text-base text-gray-500">{pet.breed}</div>
-                </td>
-                <td className="px-4 py-2 md:px-6 md:py-4">
-                  <span className="px-2 inline-flex text-sm md:text-base leading-5 font-semibold uppercase rounded-full text-[#03346E]">
-                    {pet.animal}
-                  </span>
-                </td>
-                <td className="px-4 py-2 md:px-6 md:py-4 whitespace-nowrap text-center text-sm font-medium">
-                  <button
-                    onClick={() => handlePetClick(pet.id)}
-                    className="flex items-center  gap-2 text-[#202847] hover:text-[#46b3f4] p-1"
-                  >
-                   <p className="hidden md:block md:text-base">Click to View</p>
-                   <FaArrowAltCircleRight className="block hover:text-[#46b3f4] md:hidden"/>
-                  </button>
-                </td>
+        {pets.length === 0 ? (
+          <p className="text-center text-gray-500">No pets found.</p>
+        ) : (
+          <table className="min-w-full divide-y divide-gray-200 shadow-md">
+            <thead className="bg-[#202847]">
+              <tr>
+                <th
+                  scope="col"
+                  className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
+                >
+                  Name
+                </th>
+                <th
+                  scope="col"
+                  className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
+                >
+                  Breed
+                </th>
+                <th
+                  scope="col"
+                  className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
+                >
+                  Animal
+                </th>
+                <th
+                  scope="col"
+                  className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
+                >
+                  Details
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="bg-[#f7fcfc] divide-y divide-gray-200">
+              {pets.map((pet) => (
+                <tr key={pet.id}>
+                  <td className="px-4 py-2 md:px-6 md:py-4">
+                    <div className="text-sm md:text-base text-gray-900">{pet.name}</div>
+                  </td>
+                  <td className="px-4 py-2 md:px-6 md:py-4">
+                    <div className="text-sm md:text-base text-gray-500">{pet.breed}</div>
+                  </td>
+                  <td className="px-4 py-2 md:px-6 md:py-4">
+                    <span className="px-2 inline-flex text-sm md:text-base leading-5 font-semibold uppercase rounded-full text-[#03346E]">
+                      {pet.animal}
+                    </span>
+                  </td>
+                  <td className="px-4 py-2 md:px-6 md:py-4 whitespace-nowrap text-center text-sm font-medium">
+                    <button
+                      onClick={() => handlePetClick(pet.id)}
+                      className="flex items-center gap-2 text-[#202847] hover:text-[#46b3f4] p-1"
+                    >
+                      <p className="hidden md:block md:text-base">Click to View</p>
+                      <FaArrowAltCircleRight className="block hover:text-[#46b3f4] md:hidden" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
