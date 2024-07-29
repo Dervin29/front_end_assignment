@@ -54,3 +54,6 @@ This project is a React-based application that allows users to search for pets t
     ```sh
     npm run dev
     ```
+
+## Hosted Link
+[Project URL](https://pet-application.netlify.app/)
