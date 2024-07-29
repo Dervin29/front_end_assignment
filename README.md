@@ -29,10 +29,10 @@ This project is a React-based application that allows users to search for pets t
 - **ErrorBoundary**: Catches and displays errors gracefully.
 
 ## Screenshots
+### Home Page
 ![Home Page](https://github.com/user-attachments/assets/c7007c50-1fb2-4aee-aae8-8d8584358afc)
 
-
-
+### Details Page
 ![Details Page](https://github.com/user-attachments/assets/c5163471-8ed7-46e7-8d6d-1520bbabfdca)
 
 
