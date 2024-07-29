@@ -34,7 +34,7 @@ const SearchComponent = ({ setPets }) => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://pets-v2.dev-apis.com/pets?animal=${animal}&city=${location}&breed=${breed}`
+        `${import.meta.env.VITE_API_URL}?animal=${animal}&city=${location}&breed=${breed}`
       );
       setPets(response.data.pets);
     } catch (error) {
@@ -43,7 +43,9 @@ const SearchComponent = ({ setPets }) => {
   };
 
   return (
-    <div className="w-full  flex flex-col  gap-2 bg-[#202847] p-4 rounded-md ">
+    <div className="w-full  flex flex-col  gap-2 bg-gradient-to-r from-[#202847] to-blue-900 p-4 rounded-md ">
+      <h1 className="text-2xl font-bold text-blue-400">Looking for a specific pet? </h1>
+      <p className="text-white">Use the search bar to find them by breed, animal, location.</p>
       <div className="w-full flex flex-col md:flex-row gap-2 ">
         <select className=" w-full px-4 py-2 rounded-md " value={animal} onChange={(e) => setAnimal(e.target.value)}>
           <option  value="">Select Animal</option>
@@ -83,7 +85,7 @@ const SearchComponent = ({ setPets }) => {
         </select>
       </div>
 
-      <button onClick={handleSearch} className="w-full  rounded-md bg-blue-400 hover:bg-blue-500  text-white p-2">
+      <button onClick={handleSearch} className="w-full  rounded-md bg-[#0069d9] hover:bg-blue-500  text-white p-2">
         Search
       </button>
     </div>

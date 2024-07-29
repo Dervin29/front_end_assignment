@@ -14,7 +14,7 @@ const PetDetails = () => {
     const fetchPetDetails = async () => {
       try {
         const response = await axios.get(
-          `http://pets-v2.dev-apis.com/pets?id=${id}`
+          `${import.meta.env.VITE_API_URL}?id=${id}`
         );
         setSelectedPet(response.data.pets[0]);
       } catch (error) {
@@ -48,7 +48,10 @@ const PetDetails = () => {
         <h1 className="text-2xl font-bold">{selectedPet.name}</h1>
         <p className=""><span className=" font-bold">Animal: </span> {selectedPet.animal}</p>
         <p className=""><span className=" font-bold">Breed: </span> {selectedPet.breed}</p>
-        <p className=" text-justify md:text-left flex flex-col leading-normal "><span className=" font-bold">Description: </span> {selectedPet.description}</p>
+        <div>
+          <p className=" font-bold">Description: </p>
+           <p className=" text-justify md:text-left bg-gray-200 p-2 rounded-md">{selectedPet.description}</p>
+        </div>
         <p className=""><span className=" font-bold">State: </span> {selectedPet.state}</p>
         <p className=""><span className=" font-bold">City: </span> {selectedPet.city}</p>
         <div className="flex flex-row gap-2 overflow-x-auto no-scrollbar">

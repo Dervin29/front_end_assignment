@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { PetContext } from "../context/PetContext";
 import { useNavigate } from "react-router-dom";
+import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from "react-icons/fa"
 import axios from "axios";
 import SearchComponent from "./SearchComponent";
 
@@ -15,7 +16,7 @@ const PetList = () => {
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const response = await axios.get("http://pets-v2.dev-apis.com/pets");
+        const response = await axios.get(import.meta.env.VITE_API_URL);
         setPets(response.data.pets);
       } catch (error) {
         console.error("Error fetching pets:", error);
@@ -34,25 +35,25 @@ const PetList = () => {
             <tr>
               <th
                 scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs font-medium text-white uppercase"
+                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
               >
                 Name
               </th>
               <th
                 scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs font-medium text-white uppercase"
+                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
               >
                 Breed
               </th>
               <th
                 scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs font-medium text-white uppercase"
+                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
               >
                 Animal
               </th>
               <th
                 scope="col"
-                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs font-medium text-white uppercase"
+                className="px-4 py-2 md:px-6 md:py-4 text-center text-xs md:text-sm font-medium text-white uppercase"
               >
                 Details
               </th>
@@ -62,22 +63,23 @@ const PetList = () => {
             {pets.map((pet) => (
               <tr key={pet.id}>
                 <td className="px-4 py-2 md:px-6 md:py-4">
-                  <div className="text-sm text-gray-900">{pet.name}</div>
+                  <div className="text-sm md:text-base text-gray-900">{pet.name}</div>
                 </td>
                 <td className="px-4 py-2 md:px-6 md:py-4">
-                  <div className="text-sm text-gray-500">{pet.breed}</div>
+                  <div className="text-sm md:text-base text-gray-500">{pet.breed}</div>
                 </td>
                 <td className="px-4 py-2 md:px-6 md:py-4">
-                  <span className="px-2 inline-flex text-xs leading-5 font-semibold uppercase rounded-full text-[#03346E]">
+                  <span className="px-2 inline-flex text-sm md:text-base leading-5 font-semibold uppercase rounded-full text-[#03346E]">
                     {pet.animal}
                   </span>
                 </td>
                 <td className="px-4 py-2 md:px-6 md:py-4 whitespace-nowrap text-center text-sm font-medium">
                   <button
                     onClick={() => handlePetClick(pet.id)}
-                    className="text-[#202847] hover:text-[#46b3f4] p-1"
+                    className="flex items-center  gap-2 text-[#202847] hover:text-[#46b3f4] p-1"
                   >
-                    Click to view
+                   <p className="hidden md:block md:text-base">Click to View</p>
+                   <FaArrowAltCircleRight className="block hover:text-[#46b3f4] md:hidden"/>
                   </button>
                 </td>
               </tr>
