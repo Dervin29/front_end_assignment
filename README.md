@@ -1,6 +1,6 @@
 # Pet Adoption Application
 
-This project is a React-based application that allows users to search for pets available for adoption. The application fetches data from a pet adoption API and displays a list of pets. Users can filter the list based on animal type, location, and breed, and view detailed information about each pet.
+This project is a React-based application that allows users to search for pets that are available for adoption. The application fetches data from a pet adoption API and displays a list of pets. Users can filter the list based on animal type, location, and breed, and view detailed information about each pet.
 
 ## Features
 
